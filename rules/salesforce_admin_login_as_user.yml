@@ -1,0 +1,21 @@
+# schema: https://scanner.dev/schema/scanner-detection-rule.v1.json
+name: Salesforce Admin Login As User
+description: |-
+  Detect when a Salesforce admin logs in as another user using the "Login As"
+  feature. This feature allows administrators to impersonate users, which
+  should be monitored for potential abuse or unauthorized access.
+enabled: true
+severity: Informational
+query_text: |-
+  %ingest.source_type:salesforce
+  event_type:LoginAs
+  | groupbycount(delegated_user_name)
+  | where @q.count > 0
+time_range_s: 300
+run_frequency_s: 60
+event_sink_keys:
+- informational_severity_alerts
+tags:
+- tactics.ta0004.privilege_escalation
+- techniques.t1078.valid_accounts
+- source.salesforce
