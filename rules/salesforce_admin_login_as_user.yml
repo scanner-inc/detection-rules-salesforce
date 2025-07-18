@@ -7,7 +7,7 @@ description: |-
 enabled: true
 severity: Informational
 query_text: |-
-  %ingest.source_type:"salesforce:events"
+  %ingest.source_type:salesforce
   event_type:LoginAs
   | groupbycount(delegated_user_name)
   | where @q.count > 0
