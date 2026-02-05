@@ -4,7 +4,6 @@ description: |-
   Detect when a disabled account attempts to log into Salesforce.
   An alert is triggered if there are more than ten attempts to
   authenticate to a disabled account.
-enabled: true
 severity: Medium
 query_text: |-
   @scnr.source_type:salesforce

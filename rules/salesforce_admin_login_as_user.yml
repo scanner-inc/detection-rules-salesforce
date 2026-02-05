@@ -4,7 +4,6 @@ description: |-
   Detect when a Salesforce admin logs in as another user using the "Login As"
   feature. This feature allows administrators to impersonate users, which
   should be monitored for potential abuse or unauthorized access.
-enabled: true
 severity: Informational
 query_text: |-
   @scnr.source_type:salesforce
